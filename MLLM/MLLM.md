@@ -15,3 +15,7 @@
 - 抛弃了BLIP2的结构，直接用一个Linear把图片映射到文本模态输入模型。并且因为高分辨率的图片会消耗很多token，所以4个image token合成一个，先用view把每4个堆叠到一个维度里面去，再用Linear实现4合1这里看代码就很清晰
 - 训练视觉对齐到文本分三个阶段训练
 
+## ALBEF
+[Align before Fuse: Vision and Language Representation Learning with Momentum Distillation](http://arxiv.org/abs/2107.07651)
+- 图文对比学习：准备5个假个真，然后分别和图片的embedding计算相似度，然后softmax得到logits和groundtruth计算交叉熵损失
+- 其实后面看BGE的训练也有类似的部分，并且BGE的训练需要比较大的batchsize效果才好，说是这样比较能找到hard negative
