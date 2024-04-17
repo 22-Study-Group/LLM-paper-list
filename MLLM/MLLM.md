@@ -14,3 +14,4 @@
 - 用类似p tuning的方式，在序列前增加了一个task token来适应不同的任务，这些就类似于LLM的special token，特殊token还有诸如开始结束标记[CLS] 或 </s>，分隔符[SEP] 或 |||，填充符[PAD] 或 <pad>，掩码[MASK]等等。是和普通的token一样的方法去训练的。
 - 抛弃了BLIP2的结构，直接用一个Linear把图片映射到文本模态输入模型。并且因为高分辨率的图片会消耗很多token，所以4个image token合成一个，先用view把每4个堆叠到一个维度里面去，再用Linear实现4合1这里看代码就很清晰
 - 训练视觉对齐到文本分三个阶段训练
+
